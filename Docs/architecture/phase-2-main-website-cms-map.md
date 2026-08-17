@@ -9,6 +9,7 @@ This phase takes the current copied website content and represents it in the CMS
 - Exposed the seed through `@koshlang/content`.
 - Exposed the same seed through `@koshlang/cms` and included a Phase 2 seed summary in the CMS foundation object.
 - Added a local Payload CMS app in `apps/cms` with admin, REST API, GraphQL API, SQLite development storage, editor roles, draft/version-enabled editorial collections, media handling, SEO fields, and website globals.
+- Added `pnpm --filter @koshlang/cms seed` to write the Phase 2 website seed into Payload globals and collections.
 - Added tests to keep the CMS seed aligned with the copied frontend data counts and key route coverage.
 
 ## Boundary
@@ -18,6 +19,8 @@ The website still renders from the copied frontend files in `apps/web/src`. Phas
 ## Local Access
 
 Run `pnpm --filter @koshlang/cms dev`, then open `http://localhost:3001/admin`. Payload will prompt you to create the first admin user on an empty local SQLite database.
+
+Run `pnpm --filter @koshlang/cms seed` to copy the current website content into CMS records. The seed updates existing records when run again.
 
 ## Next Phase Use
 

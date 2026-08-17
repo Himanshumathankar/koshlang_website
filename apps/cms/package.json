@@ -9,6 +9,7 @@
     "dev": "next dev -p 3001",
     "generate:importmap": "payload generate:importmap",
     "lint": "eslint .",
+    "seed": "payload run src/seed-website-content.ts",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "test": "node --test"
   },
