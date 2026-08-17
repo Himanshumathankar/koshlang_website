@@ -1,0 +1,203 @@
+@import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+@import 'tailwindcss';
+@source "./";
+
+/* ---------------------------------------------------------------------------
+   KoshLang design tokens — semantic, theme-aware.
+   Light is the default; `.dark` on <html> switches themes intentionally
+   (dark is designed, not inverted). Code contrast held to AA+ in both.
+--------------------------------------------------------------------------- */
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --background: #fbfcfd;
+  --background-subtle: #f3f6f8;
+  --background-elevated: #ffffff;
+
+  --surface: #ffffff;
+  --surface-hover: #f3f6f8;
+  --surface-active: #eaeef1;
+  --surface-code: #f7f9fb;
+
+  --foreground: #0b0d10;
+  --muted: #515b66;
+  --subtle: #7c8792;
+  --inverse: #fbfcfd;
+
+  --border: #e3e7eb;
+  --border-subtle: #eef1f3;
+  --border-strong: #cbd2d8;
+
+  --accent: #b9791f;
+  --accent-hover: #a06719;
+  --accent-contrast: #ffffff;
+  --accent-subtle: #f6eeddc0;
+
+  --success: #2e7d57;
+  --warning: #a9741a;
+  --error: #c0392b;
+  --info: #2e6fb0;
+
+  --ring: #b9791f;
+
+  --code-keyword: #9b2d8f;
+  --code-string: #2e7d57;
+  --code-function: #2e6fb0;
+  --code-type: #a9741a;
+  --code-comment: #8a949e;
+  --code-number: #c0392b;
+  --code-operator: #515b66;
+  --code-plain: #23303a;
+
+  --radius: 12px;
+  --shadow-sm: 0 1px 2px rgba(11, 13, 16, 0.06), 0 1px 1px rgba(11, 13, 16, 0.04);
+  --shadow-md: 0 8px 24px -8px rgba(11, 13, 16, 0.14), 0 2px 6px rgba(11, 13, 16, 0.06);
+  --shadow-lg: 0 24px 60px -18px rgba(11, 13, 16, 0.24), 0 6px 16px rgba(11, 13, 16, 0.08);
+}
+
+.dark {
+  --background: #0a0c0f;
+  --background-subtle: #0d1014;
+  --background-elevated: #14181d;
+
+  --surface: #12161b;
+  --surface-hover: #1a1f26;
+  --surface-active: #212831;
+  --surface-code: #0d1116;
+
+  --foreground: #eef2f6;
+  --muted: #a4aeb9;
+  --subtle: #6c7883;
+  --inverse: #0a0c0f;
+
+  --border: #232a31;
+  --border-subtle: #191e24;
+  --border-strong: #333d47;
+
+  --accent: #e0a03a;
+  --accent-hover: #eab254;
+  --accent-contrast: #14100a;
+  --accent-subtle: #2a221333;
+
+  --success: #46b583;
+  --warning: #d9a441;
+  --error: #e5675a;
+  --info: #5a9bd6;
+
+  --ring: #e0a03a;
+
+  --code-keyword: #c792ea;
+  --code-string: #86d6a5;
+  --code-function: #74b3ea;
+  --code-type: #e0a03a;
+  --code-comment: #6c7883;
+  --code-number: #e5867a;
+  --code-operator: #a4aeb9;
+  --code-plain: #d7dee5;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 8px 24px -8px rgba(0, 0, 0, 0.6), 0 2px 6px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 24px 60px -18px rgba(0, 0, 0, 0.7), 0 6px 16px rgba(0, 0, 0, 0.5);
+}
+
+/* Map semantic tokens to Tailwind utilities (inline = reference runtime vars). */
+@theme inline {
+  --color-background: var(--background);
+  --color-background-subtle: var(--background-subtle);
+  --color-background-elevated: var(--background-elevated);
+  --color-surface: var(--surface);
+  --color-surface-hover: var(--surface-hover);
+  --color-surface-active: var(--surface-active);
+  --color-surface-code: var(--surface-code);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-subtle: var(--subtle);
+  --color-inverse: var(--inverse);
+  --color-border: var(--border);
+  --color-border-subtle: var(--border-subtle);
+  --color-border-strong: var(--border-strong);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-contrast: var(--accent-contrast);
+  --color-accent-subtle: var(--accent-subtle);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-error: var(--error);
+  --color-info: var(--info);
+  --color-ring: var(--ring);
+
+  --font-sans: 'Hanken Grotesk', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 22px;
+
+  --shadow-sm: var(--shadow-sm);
+  --shadow-md: var(--shadow-md);
+  --shadow-lg: var(--shadow-lg);
+
+  --text-display-xl: 4.5rem;
+  --text-display-xl--line-height: 1.03;
+  --text-display-xl--letter-spacing: -0.03em;
+  --text-display: 3.25rem;
+  --text-display--line-height: 1.05;
+  --text-display--letter-spacing: -0.028em;
+}
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    scroll-behavior: smooth;
+  }
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    font-feature-settings: 'cv05', 'ss01';
+  }
+  ::selection {
+    background: color-mix(in srgb, var(--accent) 26%, transparent);
+  }
+  * {
+    border-color: var(--border);
+  }
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+  /* Thin, quiet scrollbars that fit the technical aesthetic. */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--border-strong) transparent;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer utilities {
+  .font-mono {
+    font-family: var(--font-mono);
+  }
+  .tabular {
+    font-variant-numeric: tabular-nums;
+  }
+  .grain {
+    background-image: radial-gradient(
+      circle at center,
+      color-mix(in srgb, var(--foreground) 6%, transparent) 0.6px,
+      transparent 0.7px
+    );
+    background-size: 4px 4px;
+  }
+}

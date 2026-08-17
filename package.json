@@ -1,0 +1,26 @@
+{
+  "name": "koshlang-web",
+  "private": true,
+  "packageManager": "pnpm@9.12.3",
+  "scripts": {
+    "dev": "turbo dev",
+    "build": "turbo build",
+    "lint": "turbo lint",
+    "typecheck": "turbo typecheck",
+    "test": "turbo test",
+    "test:phase-gates": "node --test tooling/ci/src/*.test.mjs",
+    "test:e2e": "pnpm --filter @koshlang/web test:e2e",
+    "format": "prettier --check .",
+    "audit:dead-ui": "node tooling/scripts/dead-ui-audit.mjs"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "@types/react": "^19.0.1",
+    "@types/react-dom": "^19.0.2",
+    "eslint": "^9.17.0",
+    "prettier": "^3.4.2",
+    "turbo": "^2.3.3",
+    "typescript": "^5.7.2",
+    "typescript-eslint": "^8.67.0"
+  }
+}

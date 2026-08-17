@@ -1,0 +1,21 @@
+{
+  "extends": "../../tooling/typescript/base.json",
+  "compilerOptions": {
+    "allowImportingTsExtensions": true,
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "jsx": "preserve",
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "outDir": "dist",
+    "paths": {
+      "@payload-config": ["./payload.config.ts"]
+    },
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
+  },
+  "include": ["next-env.d.ts", "payload.config.ts", "src", "app", ".next/types/**/*.ts"]
+}
