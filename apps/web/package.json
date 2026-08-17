@@ -13,6 +13,7 @@
   "dependencies": {
     "@koshlang/compiler-client": "workspace:*",
     "@koshlang/config": "workspace:*",
+    "@koshlang/content": "workspace:*",
     "@koshlang/registry-client": "workspace:*",
     "@koshlang/release-client": "workspace:*",
     "@koshlang/seo": "workspace:*",

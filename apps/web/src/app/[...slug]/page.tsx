@@ -2,6 +2,7 @@ import { getPublicConfig } from "@koshlang/config";
 import { buildPageMetadata } from "@koshlang/seo";
 import { getOverviewPage, overviewPages } from "@/lib/page-data";
 import { ReviewApp } from "@/components/review-app";
+import { getWebsitePageContent } from "@/lib/cms-content";
 
 type CatchAllPageProps = {
   params: Promise<{ slug: string[] }>;
@@ -13,13 +14,15 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: CatchAllPageProps) {
   const { slug } = await params;
-  const page = getOverviewPage(slug.join("/"));
+  const routePath = `/${slug.join("/")}`;
+  const cmsPage = await getWebsitePageContent(routePath);
+  const page = cmsPage ?? getOverviewPage(slug.join("/"));
   if (!page) return {};
 
   return buildPageMetadata(getPublicConfig(), {
-    title: page.title,
-    description: page.description,
-    path: `/${page.slug}`
+    title: "seo" in page ? (page.seo.title ?? page.title) : page.title,
+    description: "seo" in page ? (page.seo.description ?? page.description) : page.description,
+    path: "path" in page ? page.path : `/${page.slug}`
   });
 }
 

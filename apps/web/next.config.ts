@@ -4,6 +4,7 @@ const nextConfig: NextConfig = {
   transpilePackages: [
     "@koshlang/compiler-client",
     "@koshlang/config",
+    "@koshlang/content",
     "@koshlang/registry-client",
     "@koshlang/release-client",
     "@koshlang/seo",

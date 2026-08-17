@@ -1,11 +1,14 @@
 import { getPublicConfig } from "@koshlang/config";
 import { buildPageMetadata, organizationJsonLd } from "@koshlang/seo";
 import { ReviewApp } from "@/components/review-app";
+import { getWebsitePageContent } from "@/lib/cms-content";
 
-export function generateMetadata() {
+export async function generateMetadata() {
+  const page = await getWebsitePageContent("/");
+
   return buildPageMetadata(getPublicConfig(), {
-    title: "KoshLang",
-    description: "The public developer platform foundation for KoshLang.",
+    title: page?.seo.title ?? page?.title ?? "KoshLang",
+    description: page?.seo.description ?? page?.description ?? "The public developer platform foundation for KoshLang.",
     path: "/"
   });
 }

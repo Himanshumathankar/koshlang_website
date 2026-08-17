@@ -111,6 +111,9 @@ importers:
       '@koshlang/config':
         specifier: workspace:*
         version: link:../../packages/config
+      '@koshlang/content':
+        specifier: workspace:*
+        version: link:../../packages/content
       '@koshlang/registry-client':
         specifier: workspace:*
         version: link:../../packages/registry-client

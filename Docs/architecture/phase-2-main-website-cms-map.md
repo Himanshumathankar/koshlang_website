@@ -10,11 +10,12 @@ This phase takes the current copied website content and represents it in the CMS
 - Exposed the same seed through `@koshlang/cms` and included a Phase 2 seed summary in the CMS foundation object.
 - Added a local Payload CMS app in `apps/cms` with admin, REST API, GraphQL API, SQLite development storage, editor roles, draft/version-enabled editorial collections, media handling, SEO fields, and website globals.
 - Added `pnpm --filter @koshlang/cms seed` to write the Phase 2 website seed into Payload globals and collections.
+- Added a web CMS reader in `apps/web/lib/cms-content.ts` that reads Payload page records for metadata and falls back to the Phase 2 seed when the CMS is unavailable.
 - Added tests to keep the CMS seed aligned with the copied frontend data counts and key route coverage.
 
 ## Boundary
 
-The website still renders from the copied frontend files in `apps/web/src`. Phase 2 prepares the CMS-owned data layer and a working local admin without changing the current UI output.
+The website still renders its visible UI from the copied frontend files in `apps/web/src`. Phase 2 prepares the CMS-owned data layer, a working local admin, seeded records, and a typed web read boundary without changing the current UI output.
 
 ## Local Access
 
