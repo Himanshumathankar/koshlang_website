@@ -10,7 +10,11 @@ type LayoutProps = {
   children: ReactNode;
 };
 
-const serverFunction: ServerFunctionClient = (args) => handleServerFunctions({ ...args, config, importMap });
+const serverFunction: ServerFunctionClient = async (args) => {
+  "use server";
+
+  return handleServerFunctions({ ...args, config, importMap });
+};
 
 export default function Layout({ children }: LayoutProps) {
   return (

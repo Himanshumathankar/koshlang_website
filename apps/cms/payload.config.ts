@@ -7,7 +7,7 @@ import { fileURLToPath } from "node:url";
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
 
-const isProduction = process.env.APP_ENV === "production" || process.env.NODE_ENV === "production";
+const isProduction = process.env.APP_ENV === "production";
 const databaseUrl = process.env.DATABASE_URL || `file:${path.join(dirname, "payload.dev.sqlite")}`;
 const payloadSecret = process.env.PAYLOAD_SECRET || "local-koshlang-cms-secret-change-before-production";
 const publicServerUrl = process.env.PAYLOAD_PUBLIC_SERVER_URL || "http://localhost:3001";
